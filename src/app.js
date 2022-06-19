@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:
  * @Date: 2022-06-17 14:34:19
- * @LastEditTime: 2022-06-18 16:55:03
+ * @LastEditTime: 2022-06-19 14:41:24
  * @FilePath: \biz-editer-server\src\app.js
  */
 const Koa = require('koa')
@@ -12,6 +12,7 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
+const jwt = require('./middlewares/jwt')
 
 const index = require('../src/routes/index')
 const users = require('../src/routes/users')
@@ -23,6 +24,11 @@ onerror(app)
 app.use(bodyparser({
   enableTypes: ['json', 'form', 'text']
 }))
+
+// 配置 jwt 中间件
+
+app.use(jwt)
+
 app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
