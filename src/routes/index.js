@@ -3,7 +3,7 @@ const packageInfo = require('../../package.json')
 const testMysqlConn = require('../db/mysql2')
 const ENV = require('../utils/env')
 const { WorkModel } = require('../models/WorksModel')
-
+const { cacheGet, cacheSet } = require('../cache/index')
 // router.get('/', async (ctx, next) => {
 //   await ctx.render('index', {
 //     title: 'Hello Koa 2!'
@@ -34,6 +34,10 @@ router.get('/api/db-check', async (ctx) => {
     mongodbConn = false
   }
 
+  // 测试 Redis 连接
+  cacheSet('name', 'biz editor sever OK - by redis')
+  const redisTestVal = await cacheGet('name')
+
   ctx.body = {
     errno: 0,
     data: {
@@ -41,7 +45,8 @@ router.get('/api/db-check', async (ctx) => {
       version: packageInfo.version,
       ENV,
       mysqlConn: mysqlRes.length > 0,
-      mongodbConn
+      mongodbConn,
+      redisConn: redisTestVal != null,
     }
   }
 })
