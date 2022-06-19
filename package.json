@@ -6,7 +6,9 @@
     "start": "node bin/www",
     "dev": "nodemon bin/www",
     "prd": "pm2 start bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:local": "cross-env NODE_ENV=test_local jest --runInBand  --passWithNoTests --colors --forceExit",
+    "test:remote": "cross-env NODE_ENV=test_remote jest --runInBand  --passWithNoTests --colors --forceExit"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
@@ -31,6 +33,7 @@
     "simple-git": "^3.7.1"
   },
   "devDependencies": {
+    "jest": "^28.1.1",
     "nodemon": "^1.19.1"
   }
 }
