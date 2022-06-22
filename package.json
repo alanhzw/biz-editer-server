@@ -12,6 +12,7 @@
     "test:remote": "cross-env NODE_ENV=test_remote jest --runInBand  --passWithNoTests --colors --forceExit"
   },
   "dependencies": {
+    "ajv": "^8.11.0",
     "axios": "^0.27.2",
     "cross-env": "^7.0.3",
     "debug": "^4.1.1",
@@ -36,7 +37,35 @@
     "supertest": "^6.2.3"
   },
   "devDependencies": {
+    "commitlint": "^17.0.2",
+    "commitlint-config-cz": "^0.13.3",
+    "cz-customizable": "^6.3.0",
+    "eslint": "^8.18.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.1",
     "jest": "^28.1.1",
-    "nodemon": "^1.19.1"
+    "lint-staged": "^13.0.2",
+    "nodemon": "^1.19.1",
+    "prettier": "^2.7.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIY_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint",
+      "npm run test:local"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
   }
 }
