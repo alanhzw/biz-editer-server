@@ -5,7 +5,7 @@ name: test # 测试名称 语义化即可
 on: # 触发条件
     push: # 在下面的分支进行 push 操作的时候触发
         branches: # 触发的分支 可以设置多个
-            - master # 分支名称
+            - main # 分支名称
         paths: # 以下目录中的文件有改动就触发  可以不写 代表所有文件
             - '.github/workflows/**'
             - '__test__/**'
