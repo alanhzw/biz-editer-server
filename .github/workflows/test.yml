@@ -23,7 +23,6 @@ jobs: # 任务
             - name: lint and test # 第三个步骤 步骤名称 自定义
               run: | # 自定义执行命令  多行的方式
                   npm i
-                  npm run lint
                   npm run test:remote
     test2: # 任务名称 可以自定义 也可以使用第三方
         runs-on: ubuntu-latest # 指定运行环境 操作系统 没有特殊情况不需要改
