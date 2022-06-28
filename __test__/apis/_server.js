@@ -2,7 +2,7 @@
  * @Author: 一尾流莺
  * @Description:jest server
  * @Date: 2022-06-19 16:32:14
- * @LastEditTime: 2022-06-19 16:32:16
+ * @LastEditTime: 2022-06-28 09:19:29
  * @FilePath: \biz-editer-server\__test__\apis\_server.js
  */
 const axios = require('axios')
@@ -20,7 +20,7 @@ if (isTestLocal) {
 let TOKEN = ''
 
 // 测试机 host
-const REMOTE_HOST = 'http://182.92.xxx.xxx:8081'
+const REMOTE_HOST = 'http://182.92.168.192:8081'
 
 /**
  * 发送请求
