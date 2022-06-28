@@ -1,6 +1,6 @@
 # master 分支 自动测试
 
-name: test # 测试名称 语义化即可
+name: test1 # 测试名称 语义化即可
 
 on: # 触发条件
     push: # 在下面的分支进行 push 操作的时候触发
